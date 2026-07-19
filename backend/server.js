@@ -4,12 +4,15 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 
-const authRoutes = require('./routes/auth');
+const authRoutes = require('./routes/Auth');
 const todoRoutes = require('./routes/todos');
 
 const app = express();
+const allowedOrigin = process.env.FRONTEND_URL || 'http://localhost:3000';
 
-app.use(cors());
+app.use(cors({
+	origin: allowedOrigin,
+}));
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);

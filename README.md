@@ -29,6 +29,7 @@ Create a `.env` file in `backend/`:
 MONGO_URI=your-mongodb-connection-string
 JWT_SECRET=your-jwt-secret
 PORT=5000
+FRONTEND_URL=http://localhost:3000
 ```
 
 Start the backend:
@@ -73,6 +74,7 @@ npm start
 MONGO_URI=your-mongodb-connection-string
 JWT_SECRET=your-jwt-secret
 PORT=5000
+FRONTEND_URL=https://todos-list-omega-pied.vercel.app/
 ```
 
 4. Make sure your MongoDB Atlas cluster allows connections from Render.
@@ -83,7 +85,7 @@ PORT=5000
 2. Add this environment variable in Vercel:
 
 ```env
-REACT_APP_API_URL=https://your-render-backend-url.onrender.com/api
+REACT_APP_API_URL=https://todos-list-uu2k.onrender.com
 ```
 
 3. Use the default React build settings. Vercel will run:
@@ -96,6 +98,7 @@ npm run build
 
 - The frontend API base URL is configurable through `REACT_APP_API_URL`.
 - The backend uses `MONGO_URI` for MongoDB and `JWT_SECRET` for auth tokens.
+- The backend CORS origin is controlled by `FRONTEND_URL`.
 - If you change the backend URL later, update `REACT_APP_API_URL` in Vercel.
 
 ## Scripts
