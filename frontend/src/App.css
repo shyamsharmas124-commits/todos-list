@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: #f7f3ec;
+  color: #2b2620;
+  line-height: 1.5;
+}
+
+.app {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 64px 24px;
+  font-family: 'Inter', sans-serif;
+}
+
+h2 {
+  font-family: 'Source Serif 4', serif;
+  font-weight: 600;
+  font-size: 28px;
+  margin: 0 0 24px;
+  color: #201c17;
+}
+
+/* --- Auth forms --- */
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.auth-form input {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  padding: 12px 14px;
+  border: 1px solid #cfc4b0;
+  border-radius: 2px;
+  background: #fffdf9;
+  color: #2b2620;
+}
+
+.auth-form input:focus {
+  outline: none;
+  border-color: #a8471f;
+}
+
+.auth-form button,
+.add-todo-form button,
+.todo-item button {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 12px 18px;
+  border: 1px solid #201c17;
+  border-radius: 2px;
+  background: #201c17;
+  color: #f7f3ec;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.auth-form button:hover,
+.add-todo-form button:hover {
+  background: #a8471f;
+  border-color: #a8471f;
+}
+
+.auth-form p {
+  font-size: 14px;
+  color: #6b6255;
+  margin-top: 8px;
+}
+
+.link {
+  color: #a8471f;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.error {
+  font-size: 14px;
+  color: #a8471f;
+  background: #f6e6dd;
+  border: 1px solid #e6bfa4;
+  padding: 10px 12px;
+  border-radius: 2px;
+}
+
+/* --- Todo list --- */
+
+.todo-list-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.todo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid #d8cdb8;
+  padding-bottom: 16px;
+}
+
+.todo-header h2 {
+  margin: 0;
+}
+
+.todo-header button {
+  background: transparent;
+  color: #6b6255;
+  border: 1px solid #cfc4b0;
+}
+
+.todo-header button:hover {
+  background: #ece4d4;
+  border-color: #cfc4b0;
+  color: #2b2620;
+}
+
+.add-todo-form {
+  display: flex;
+  gap: 8px;
+}
+
+.add-todo-form input {
+  flex: 1;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  padding: 12px 14px;
+  border: 1px solid #cfc4b0;
+  border-radius: 2px;
+  background: #fffdf9;
+  color: #2b2620;
+}
+
+.add-todo-form input:focus {
+  outline: none;
+  border-color: #a8471f;
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid #e6ddc9;
+}
+
+.todo-item input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #a8471f;
+}
+
+.todo-text {
+  flex: 1;
+  font-size: 16px;
+  cursor: text;
+  line-height: 1.4;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #a89e8d;
+}
+
+.todo-edit-input {
+  flex: 1;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  padding: 6px 8px;
+  border: 1px solid #a8471f;
+  border-radius: 2px;
+  background: #fffdf9;
+}
+
+.todo-item button {
+  background: transparent;
+  color: #a89e8d;
+  border: none;
+  padding: 4px 8px;
+  font-size: 13px;
+}
+
+.todo-item button:hover {
+  color: #a8471f;
+}
+
+@media (max-width: 640px) {
+  .app {
+    padding: 24px 16px 40px;
+  }
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 18px;
+  }
+
+  .todo-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .todo-header button {
+    width: 100%;
+  }
+
+  .add-todo-form {
+    flex-direction: column;
+  }
+
+  .add-todo-form button,
+  .add-todo-form input,
+  .auth-form button,
+  .auth-form input {
+    width: 100%;
+  }
+
+  .todo-item {
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px 0;
+    flex-wrap: wrap;
+  }
+
+  .todo-text,
+  .todo-edit-input {
+    min-width: 0;
+    width: calc(100% - 48px);
+  }
+
+  .todo-item button {
+    margin-left: auto;
+    padding-right: 0;
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "users": [
+    {
+      "id": "83441e3a-023d-481d-9164-6b328c7bd5ce",
+      "username": "shyam",
+      "password": "$2b$10$0DDIQ3tiRrDvkBp7mJyeF.Is.9dNTmcmuYeUSLCpnIhRWhJx5Cz0S",
+      "createdAt": "2026-07-19T05:34:59.616Z"
+    },
+    {
+      "id": "0bdfa590-f92c-4aa0-8453-517de5c7a096",
+      "username": "debug_user_682100584",
+      "password": "$2b$10$4BZxhpDsk9en9ZR3xmxBu.jCwpxPOedctanCGLFTgwbOYK5/oK0AG",
+      "createdAt": "2026-07-19T15:28:28.675Z"
+    },
+    {
+      "id": "aa801ffc-792d-4ddd-8cf2-5ae205811ce9",
+      "username": "debug_user_1353688655",
+      "password": "$2b$10$/yxOH9LimhHmWzQbJxVLMeEVPGeV/535sL0mJZjPt4t.YZ.G9xXFC",
+      "createdAt": "2026-07-19T15:28:30.791Z"
+    },
+    {
+      "id": "cff6c0d3-f64e-4a51-ab3e-6da300bd2d06",
+      "username": "arjun",
+      "password": "$2b$10$0ux4gh2/bk50T8FMy846mOQ24z6N2Vmrd.bA2iLsPfI0CLBz8KqBW",
+      "createdAt": "2026-07-19T15:33:05.157Z"
+    }
+  ],
+  "todos": []
+}
