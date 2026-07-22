@@ -9,7 +9,18 @@ router.use(auth);
 
 router.get('/', async (req, res) => {
     try {
-        const todos = await Todo.find({ user: req.userId }).sort({ createdAt: -1 });
+        const todos = await Todo.find({ user: req.userId, deleted: { $ne: true } }).sort({ createdAt: -1 });
+        res.json(todos);
+    } catch (err) {
+        res.status(500).json({ message: 'Server error' });
+    }
+});
+
+
+
+router.get('/trash', async (req, res) => {
+    try {
+        const todos = await Todo.find({ user: req.userId, deleted: true }).sort({ deletedAt: -1 });
         res.json(todos);
     } catch (err) {
         res.status(500).json({ message: 'Server error' });
@@ -58,13 +69,36 @@ router.put('/:id', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
     try {
-        const todo = await Todo.findOneAndDelete({ _id: req.params.id, user: req.userId });
+        const todo = await Todo.findOne({ _id: req.params.id, user: req.userId, deleted: { $ne: true } });
 
         if (!todo) {
             return res.status(404).json({ message: 'Todo not found' });
         }
 
-        res.json({ message: 'Todo deleted' });
+        todo.deleted = true;
+        todo.deletedAt = new Date();
+        await todo.save();
+
+        res.json(todo);
+    } catch (err) {
+        res.status(500).json({ message: 'Server error' });
+    }
+});
+
+
+
+router.put('/:id/restore', async (req, res) => {
+    try {
+        const todo = await Todo.findOne({ _id: req.params.id, user: req.userId, deleted: true });
+
+        if (!todo) {
+            return res.status(400).json({ message: 'Todo not found in trash' });
+        }
+
+        todo.deleted = false;
+        todo.deletedAt = null;
+        await todo.save();
+        res.json(todo);
     } catch (err) {
         res.status(500).json({ message: 'Server error' });
     }

@@ -26,9 +26,11 @@ export const api = {
     signup: (username, password) => request('/auth/signup', { method: 'POST', body: JSON.stringify({ username, password }) }),
     login: (username, password) => request('/auth/login', { method: 'POST', body: JSON.stringify({ username, password }) }),
     getTodos: () => request('/todos'),
+    getTrash:  ()=>request('/todos/trash'),
     addTodo: (text) => request('/todos', { method: 'POST', body: JSON.stringify({ text }) }),
     updateTodo: (id, updates) => request(`/todos/${id}`, { method: 'PUT', body: JSON.stringify(updates) }),
     deleteTodo: (id) => request(`/todos/${id}`, { method: 'DELETE' }),
+    restoreTodo:(id) => request(`/todos/${id}/restore`, {method:'PUT'})
 };
 
 

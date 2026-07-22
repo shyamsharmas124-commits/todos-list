@@ -23,6 +23,12 @@
       "username": "arjun",
       "password": "$2b$10$0ux4gh2/bk50T8FMy846mOQ24z6N2Vmrd.bA2iLsPfI0CLBz8KqBW",
       "createdAt": "2026-07-19T15:33:05.157Z"
+    },
+    {
+      "id": "57b2796b-1116-42d2-bd40-e068587b123d",
+      "username": "manav ",
+      "password": "$2b$10$VtXsVcyPo5M8umTIe1T5LubNrmWMot7wcJv6BBSLAtuUoe5.9zlx.",
+      "createdAt": "2026-07-21T08:51:54.625Z"
     }
   ],
   "todos": []

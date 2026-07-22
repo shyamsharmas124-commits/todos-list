@@ -1,5 +1,16 @@
 import { useState } from "react";
 
+
+function formatTime(dateString){
+    const date = new Date(dateString);
+    return date.toLocaleString(undefined,{
+        month: 'short',
+        day: 'numeric',
+        hour:'numeric',
+        minute:'2-digit'
+    })
+}
+
 export default function TodoItem({ todo, onUpdate, onDelete }) {
     const [editing, setEditing] = useState(false);
     const [text, setText] = useState(todo.text);
@@ -40,6 +51,11 @@ export default function TodoItem({ todo, onUpdate, onDelete }) {
             )}
 
             <button onClick={() => onDelete(todoId)}>Delete</button>
+
+            <div className = "todo-meta">
+                <span>{formatTime(todo.createdAt)}</span>
+                {todo.editedAt && <span> . edited {formatTime(todo.editedAt)}</span>}
+            </div>
         </li>
     );
 }
